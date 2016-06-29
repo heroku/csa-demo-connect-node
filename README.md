@@ -8,7 +8,7 @@ NodeJS Heroku Connect Sample
 Starting point for Salesforce/Heroku POC Demonstrations
 
 ## To change the database query
-1.) Update Postgres query in [index.js](https://github.com/joeyjmorales/node-connect/blob/master/index.js)
-2.) Update HTML temnplate in [index.ejs](https://github.com/joeyjmorales/node-connect/blob/master/app/views/index.ejs)
+- Update Postgres query in [index.js](https://github.com/joeyjmorales/node-connect/blob/master/index.js)
+- Update HTML temnplate in [index.ejs](https://github.com/joeyjmorales/node-connect/blob/master/app/views/index.ejs)
 
 
