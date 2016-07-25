@@ -48,18 +48,18 @@
           <!-- Desktop View -->
           <table class="table table-condensed">
               <tr>
-                  <td class="text-left"><h5>Salesforce Jobs</h5></td>
-                  <td class="text-left"><h5>Division</h5></td>
-                  <td class="text-left"><h5>Status</h5></td>
-                  <td class="text-left"><h5>Start Date</h5></td>
+                  <td class="text-left"><h5>Account Name</h5></td>
+                  <td class="text-left"><h5>Account Number</h5></td>
+                  <td class="text-left"><h5>City</h5></td>
+                  <td class="text-left"><h5>Active Date</h5></td>
               </tr>
 
               <% for(var i=0; i<connectResults.length; i++) { %>
                   <tr>
-                      <td class="text-left"><%= connectResults[i].description__c %></td>
-                      <td class="text-left"><%= connectResults[i].division__c %></td>
-                      <td class="text-left"><%= connectResults[i].status__c %></td>
-                      <td class="text-left"><%= new Date(connectResults[i].start_date__c).toJSON().substring(0,10) %></td>
+                      <td class="text-left"><%= connectResults[i].name %></td>
+                      <td class="text-left"><%= connectResults[i].accountnumber %></td>
+                      <td class="text-left"><%= connectResults[i].billingcity %></td>
+                      <td class="text-left"><%= new Date(connectResults[i].createddate).toJSON().substring(0,10) %></td>
                   </tr>
               <% } %>
 

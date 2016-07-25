@@ -1,7 +1,18 @@
 var express = require("express"),
     app = express(),
-    pg = require("pg");
+    pg = require("pg"),
     path = require("path");
+
+/**
+ * File upload via AWS S3 / Bucketeer Addon
+ * For Amazon Data Center East
+ */
+/*var aws = require("aws-sd");
+var s3 = new aws.S3({
+    accessKeyId: process.env.BUCKETEER_AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.BUCKETEER_AWS_SECRET_ACCESS_KEY,
+    region: 'us-east-1',
+});*/
 
 app.set("port", (process.env.PORT || 5000));
 
@@ -9,7 +20,10 @@ app.set("port", (process.env.PORT || 5000));
 * PG Client connection
 */
 pg.defaults.ssl = true;
-var dbString = process.env.DATABASE_URL;
+
+//var dbString = process.env.DATABASE_URL;
+var dbString = "postgres://u44rjnscpoe6kl:p9htq4gagm7ktk43qubkrknskus@ec2-52-203-130-247.compute-1.amazonaws.com:5432/d4nvv09c2s0i5i";
+
 var sharedPgClient;
 
 pg.connect(dbString, function(err,client){
@@ -30,7 +44,7 @@ app.set("view engine", "ejs");
  * Jobs Landing Page
  */
 app.get("/",function defaultRoute(req, res){
-    var query = "SELECT j.* FROM salesforce.job__c j order by j.start_date__c DESC";
+    var query = "SELECT * FROM salesforce.account";
     var result = [];
     sharedPgClient.query(query, function(err, result){
         console.log("Jobs Query Result Count: " + result.rows.length);
