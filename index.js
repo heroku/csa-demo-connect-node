@@ -21,8 +21,7 @@ app.set("port", (process.env.PORT || 5000));
 */
 pg.defaults.ssl = true;
 
-//var dbString = process.env.DATABASE_URL;
-var dbString = "postgres://u44rjnscpoe6kl:p9htq4gagm7ktk43qubkrknskus@ec2-52-203-130-247.compute-1.amazonaws.com:5432/d4nvv09c2s0i5i";
+var dbString = process.env.DATABASE_URL;
 
 var sharedPgClient;
 
